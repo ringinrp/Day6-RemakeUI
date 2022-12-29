@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Day 9 | Data Modeling</title>
     <link href="/Public/css/bootstrap.css" rel="stylesheet">
-    <link href="/Public/css/style.css" rel="stylesheet">
+    <link href="/Public/css/project.css" rel="stylesheet">
 
     <!--Font Awesome-->
     <link href="/Public/css/all.css" rel="stylesheet">
@@ -36,10 +36,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
                     <li class="nav-item ">
-                        <a class="nav-link" href="/">Home</a>
+                        <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="project">Add Project</a>
+                        <a class="nav-link" href="project.html">Add Project</a>
                     </li>
                 </ul>
 
@@ -52,84 +52,78 @@
 
     <!--Content-->
     
-    <section>
-        <div class="container-fluid d-flex justify-content-center">
-        <form action="/project/addproject" method="POST" id="project-form" class="project-form">
-            <h1 class="d-flex justify-content-center mb-3">ADD MY PROJECT</h1>
-            <div class="card px-5 m-5">
-                <div class="input row my-3">
-                    <div class="col-md-12 mt-3">
-                        <label for="ProjectName" class="form-label fw-bold">Project Name</label>
-                        <input type="text" class="form-control" id="ProjectName" name="ProjectName" value="{{.updateData.ProjectName}}" required>
+    <main>
+        <h2 style="display: flex; justify-content:center; margin-top:5%;">EDIT PROJECT</h2>
+        <!-- PROJECT FORM -->
+        <section class="project-form">
+            <form class="project-input" id="project-input">
+                <div class="input-row my-3">
+                    <div class="col-md-12">
+                        <label for="project" class="form-label fw-bold">Project Name</label>
+                        <input type="text" class="form-control" id="project" name="project" placeholder="Masukkan nama project" required>
                     </div>
                 </div>
-                <div class="input row my-3">
+                <div class="input-row input-date">
                     <div class="col-md-6">
                         <label for="date-start" class="form-label fw-bold">Start Date</label>
-                        <input type="date" class="form-control" id="date-start"  value="{{.updateData.StartDate}}" name="date-start" >
+                        <input type="date" class="form-control" id="date-start" name="date-start" required>
                     </div>
                     <div class="col-md-6">
                         <label for="date-end" class="form-label fw-bold">End Date</label>
-                        <input type="date" class="form-control" id="date-end" value="{{.updateData.EndDate}}" name="date-end" >
+                        <input type="date" class="form-control" id="date-end" name="date-end" required>
                     </div>
                 </div>
-                <div class="input row my-3">
+                <div class="input-row my-3">
                     <div class="col-md-12">
                         <label for="description" class="form-label fw-bold">Description</label>
-                        <textarea class="form-control" id="description" cols="30" rows="5" style="resize: none;" value="{{.updateData.Description}}"
-                            name="description"></textarea>
+                        <textarea class="form-control" id="description" cols="30" rows="5" style="resize: none;"
+                            name="description" placeholder="Masukkan deskripsi project .."></textarea>
                     </div>
                 </div>
-                <div class="input row my-3">
+                <div class="input-row">
                     <div class="col-md-12">
                         <label for="technologies" class="form-label fw-bold">Technologies</label>
                     </div>
                 </div>
-                <div class="input row m-2">
+                <div class="input-row">
                     <div class="col-md-4">
                         <input class="form-check-input" type="checkbox" id="nodejs" name="nodejs">
-                        <label class="form-check-label" for="nodejs">
+                        <label class="form-check-label label-technologi" for="nodejs">
                             Node JS
                         </label>
                     </div>
                     <div class="col-md-4">
                         <input class="form-check-input" type="checkbox" id="reactjs" name="reactjs">
-                        <label class="form-check-label" for="reactjs">
+                        <label class="form-check-label label-technologi" for="reactjs">
                             React JS
                         </label>
                     </div>
                 </div>
-                <div class="input row m-2">
+                <div class="input-row mb-3">
                     <div class="col-md-4">
                         <input class="form-check-input" type="checkbox" id="nextjs" name="nextjs">
-                        <label class="form-check-label" for="nextjs">
+                        <label class="form-check-label label-technologi" for="nextjs">
                             Next JS
                         </label>
                     </div>
                     <div class="col-md-4">
-                        <input class="form-check-input" type="checkbox" id="typescript" name="typescript">
-                        <label class="form-check-label" for="typescript">
-                            Typescript
+                        <input class="form-check-input" type="checkbox" id="vuejs" name="vuejs">
+                        <label class="form-check-label label-technologi" for="vuejs">
+                            Vue JS
                         </label>
                     </div>
                 </div>
-                <div class="input row my-3">
-                    <div class="col-md-12">
-                        <label for="upload-image" class="form-label fw-bold">Upload Image</label>
-                        <div class="input-group">
-                            <input type="file" class="form-control" id="upload-image" aria-label="Upload" accept="image/*">
-                            <span class="input-group-text"><i class="fa-solid fa-paperclip"></i></span>
-                        </div>
-                    </div>
-                </div>
-              
-                        <button type="submit" class="btn btn-outline-danger mb-4 mt-5">submit</button>
-                   
-            </div>
-            
-        </form>
+                <div class="mb-3">
+                    <label for="upload-image">Upload Image</label>
+                    <input class="form-control mt-2" type="file" id="upload-image">
+                  </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </section>
+    </main>
+   
     </div>
-    </section>
     <!-- <div class="container d-flex justify-content-center mb-5">
         <div class="card px-5 pt-4">
             <div class="mb-3">
