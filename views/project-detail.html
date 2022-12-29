@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 9 | Data Modeling</title>
+    <link rel="stylesheet" href="/Public/css/project-detail.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+        <!-- header -->
+        <header>
+            <nav>
+                <!--left -->
+                <div class="nav-left">
+                    <a href="index">
+                        <img src="/Public/images/brandred.png">
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="/">Home</a>
+                        </li>
+                        <li>
+                            <a href="project" style="color: orangered;">Add Project</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- right -->
+                <div class="nav-right">
+                    <a href="contact">Contact Me</a>
+                </div>
+            </nav>
+        </header>
+
+    <main>
+        <!-- PROJECT DETAIL -->
+        <section class="details container">
+            <h2>{{.renderDetail.ProjectName}}</h2>
+            <div class="detail-content">
+                <div class="content-left">
+                    <img src="/Public/images/gambar.jpg" alt="image" height="350px">
+                </div>
+                <div class="content-right">
+                    <div class="content-duration">
+                        <h3>Duration</h3>
+                        <div class="content-date">
+                            <p><i class="fas fa-calendar"></i>{{.renderDetail.StartDate}} -
+                                {{.renderDetail.EndDate}}</p>
+                            <p><i class="fas fa-clock"></i>{{.renderDetail.Duration}}</p>
+                        </div>
+                    </div>
+                    <div class="tech-description card-body p-3">
+                        <h3 class="card-title">Technologies</h3>
+                        <div class="d-flex align-items-center flex-wrap">
+                            {{ range $index, $data := .Technologies}}
+                            <div class="col-6">
+                                <img width="18" class="icon me-2" src="/Public/images/{{ $data }}.svg" alt="Icon" />{{
+                                if (eq $data "nodejs") }} Node JS
+                                {{ else if (eq $data "react-native") }} React JS
+                                {{ else if (eq $data "nextjs") }} Next JS
+                                {{ else if (eq $data "typescript") }} Typescript
+                                {{ end }}
+                            </div>
+                            {{ end }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-description">
+                <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam reprehenderit eaque nulla beatae,
+                    quam impedit eos ex ipsam placeat officiis sunt doloremque soluta itaque dolor culpa incidunt dolore
+                    quisquam quos!
+                    Ipsum cum sed magnam suscipit voluptate asperiores quam ducimus debitis totam quas magni eos optio,
+                    velit delectus placeat omnis. Excepturi nihil, eligendi saepe esse mollitia fugit sit voluptatum
+                    officia repellendus!
+                    <br>
+                    <br>
+                    Repellendus autem odit nihil. Quo error, illo aliquid et eaque totam culpa repellendus ratione
+                    suscipit nostrum cumque porro. Non debitis eveniet expedita iure, perspiciatis ullam iusto impedit
+                    maxime sunt optio.
+                    Quam rerum natus odit maxime sit neque delectus atque quod animi odio temporibus, distinctio iure
+                    aperiam cupiditate similique provident nisi id aspernatur unde? Voluptates quidem reprehenderit
+                    eveniet quia sunt illo.
+                    <br>
+                </p>
+            </div>
+        </section>
+    </main>
+
+</body>
+
+</html>
